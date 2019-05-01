@@ -161,7 +161,7 @@
       o = n.n(a);
     t.a = o.a
       .module("webui.services.configuration", [])
-      .constant("$name", "Aria2 WebUI")
+      .constant("$name", "Central Download Manager")
       .constant(
         "$titlePattern",
         "active: {active} - waiting: {waiting} - stopped: {stopped} — {name}"
@@ -184,7 +184,9 @@
         "dir",
         "conf-path",
         "auto-file-renaming",
-        "max-connection-per-server"
+        "max-connection-per-server",
+        "max-overall-download-limit",
+        "max-concurrent-downloads"
       ])
       .constant("$downloadProps", [
         "header",

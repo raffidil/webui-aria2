@@ -2,14 +2,14 @@ import angular from "angular";
 
 export default angular
   .module("webui.services.configuration", [])
-  .constant("$name", "Aria2 WebUI") // name used across the entire UI
+  .constant("$name", "Central Download Manager") // name used across the entire UI
   .constant("$titlePattern", "active: {active} - waiting: {waiting} - stopped: {stopped} — {name}")
   .constant("$pageSize", 11) // number of downloads shown before pagination kicks in
   .constant("$authconf", {
     // default authentication configuration, never fill it in case the webui is hosted in public IP as it can be compromised
-    host: location.protocol.startsWith("http") ? location.hostname : "localhost",
+    host: location.protocol.startsWith("http") ? location.hostname : "download.psam.im",
     path: "/jsonrpc",
-    port: 6800,
+    port: 443,
     encrypt: false,
     auth: {
       // either add the token field or the user and pass field, not both.
@@ -42,7 +42,9 @@ export default angular
     "dir",
     "conf-path",
     "auto-file-renaming",
-    "max-connection-per-server"
+    "max-connection-per-server",
+    "max-overall-download-limit",
+    "max-concurrent-downloads"
   ])
   .constant("$downloadProps", [
     // Similar to starred Quick Access properties but for adding new downloads.
